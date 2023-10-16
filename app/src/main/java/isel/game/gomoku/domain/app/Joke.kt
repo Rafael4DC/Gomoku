@@ -1,4 +1,4 @@
-package isel.game.gomoku.domain.utils
+package isel.game.gomoku.domain.app
 
 
 import java.net.URL

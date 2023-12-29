@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name="isel.pdm.gomoku.Gomoku9Application"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_tic_tac_toe"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_tic_tac_toe"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Gomoku9"
+        tools:targetApi="34">
+
+        <activity
+            android:name="isel.pdm.gomoku.ui.home.HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Gomoku9">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="isel.pdm.gomoku.ui.preferences.UserPreferencesActivity" />
+        <activity android:name="isel.pdm.gomoku.ui.game.lobby.LobbyActivity" />
+        <activity android:name="isel.pdm.gomoku.ui.game.play.GamePlayActivity" />
+
+        <activity android:name=".ui.screens.profile.ProfileActivity" />
+        <activity android:name=".ui.screens.ranking.RankingActivity" />
+        <activity android:name=".ui.screens.about.AboutActivity"/>
+    </application>
+
+</manifest>

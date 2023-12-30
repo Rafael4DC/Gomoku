@@ -4,7 +4,6 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import isel.pdm.gomoku.domain.IOState
 import isel.pdm.gomoku.domain.user.UserInfo
-import isel.pdm.gomoku.domain.user.UserInfoRepository
 import isel.pdm.demos.tictactoe.utils.MockMainDispatcherRule
 import isel.pdm.demos.tictactoe.utils.SuspendingGate
 import isel.pdm.gomoku.ui.main.MainScreenViewModel

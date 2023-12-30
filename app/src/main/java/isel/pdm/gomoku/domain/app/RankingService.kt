@@ -2,7 +2,6 @@ package isel.pdm.gomoku.domain.app
 
 import android.util.Log
 import isel.pdm.gomoku.domain.game.app.Ranker
-import isel.pdm.gomoku.ui.home.TAG
 import kotlinx.coroutines.delay
 
 /**
@@ -45,7 +44,6 @@ class FakeRankingService : RankingService {
     )
 
     override suspend fun getRankers(limit: Int): List<Ranker> {
-        Log.v(TAG, "fetching rankers...")
         delay(3000)
         return rankings
     }

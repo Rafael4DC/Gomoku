@@ -1,5 +1,7 @@
 package isel.pdm.gomoku.domain
 
+import isel.pdm.gomoku.domain.user.UserInfo
+
 /**
  * Sum type that represents the state of a I/O operation.
  * @param T the type of the value that results from the I/O operation.
@@ -54,7 +56,7 @@ fun saving() = IOState.Saving
 /**
  * Returns a new [IOState] in the loaded state.
  */
-fun <T> loaded(value: Result<T>) = IOState.Loaded(value)
+fun <T> loaded(value: Result<T>): IOState<T?> = IOState.Loaded(value)
 
 /**
  * Returns a new [IOState] in the saved state.

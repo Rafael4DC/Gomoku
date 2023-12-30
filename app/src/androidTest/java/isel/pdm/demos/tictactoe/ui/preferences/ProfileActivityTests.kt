@@ -9,23 +9,22 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import isel.pdm.gomoku.domain.user.UserInfo
-import isel.pdm.gomoku.domain.user.UserInfoRepository
 import isel.pdm.gomoku.ui.common.ErrorAlertTestTag
 import isel.pdm.gomoku.ui.common.NavigateBackTag
 import isel.pdm.demos.tictactoe.utils.PreserveDefaultDependenciesNoActivity
 import isel.pdm.demos.tictactoe.utils.createPreserveDefaultDependenciesComposeRuleNoActivity
-import isel.pdm.gomoku.ui.preferences.EditModeTestTag
-import isel.pdm.gomoku.ui.preferences.MottoInputFieldTag
-import isel.pdm.gomoku.ui.preferences.NickInputFieldTag
-import isel.pdm.gomoku.ui.preferences.SaveButtonTag
-import isel.pdm.gomoku.ui.preferences.UserPreferencesActivity
-import isel.pdm.gomoku.ui.preferences.UserPreferencesScreenTag
-import isel.pdm.gomoku.ui.preferences.ViewModeTestTag
+import isel.pdm.gomoku.ui.profile.EditModeTestTag
+import isel.pdm.gomoku.ui.profile.MottoInputFieldTag
+import isel.pdm.gomoku.ui.profile.NickInputFieldTag
+import isel.pdm.gomoku.ui.profile.SaveButtonTag
+import isel.pdm.gomoku.ui.profile.ProfileActivity
+import isel.pdm.gomoku.ui.profile.UserPreferencesScreenTag
+import isel.pdm.gomoku.ui.profile.ViewModeTestTag
 import kotlinx.coroutines.delay
 import org.junit.Rule
 import org.junit.Test
 
-class UserPreferencesActivityTests {
+class ProfileActivityTests {
 
     @get:Rule
     val testRule = createPreserveDefaultDependenciesComposeRuleNoActivity()
@@ -37,7 +36,7 @@ class UserPreferencesActivityTests {
     @Test
     fun screen_is_in_edit_mode_if_no_extra_is_passed_to_the_activity() {
         // Arrange
-        ActivityScenario.launch(UserPreferencesActivity::class.java).use {
+        ActivityScenario.launch(ProfileActivity::class.java).use {
             // Act
             // Assert
             testRule.onNodeWithTag(UserPreferencesScreenTag).assertExists()
@@ -49,7 +48,7 @@ class UserPreferencesActivityTests {
     @Test
     fun pressing_the_back_button_in_edit_mode_finishes_the_activity() {
         // Arrange
-        ActivityScenario.launch(UserPreferencesActivity::class.java).use { scenario ->
+        ActivityScenario.launch(ProfileActivity::class.java).use { scenario ->
             // Act
             testRule.onNodeWithTag(NavigateBackTag).performClick()
             // Assert
@@ -69,7 +68,7 @@ class UserPreferencesActivityTests {
             coEvery { updateUserInfo(any()) } returns Unit
         }
         testApplication.userInfoRepository = mockRepo
-        ActivityScenario.launch(UserPreferencesActivity::class.java).use { scenario ->
+        ActivityScenario.launch(ProfileActivity::class.java).use { scenario ->
             // Still Arranging
             testRule.onNodeWithTag(NickInputFieldTag).performTextInput("nick")
             testRule.onNodeWithTag(MottoInputFieldTag).performTextInput("motto")
@@ -94,7 +93,7 @@ class UserPreferencesActivityTests {
         testApplication.userInfoRepository = mockRepo
         val enteredNick = "nick"
         val enteredMotto = "motto"
-        ActivityScenario.launch(UserPreferencesActivity::class.java).use {
+        ActivityScenario.launch(ProfileActivity::class.java).use {
             // Still Arranging
             testRule.onNodeWithTag(NickInputFieldTag).performTextInput(enteredNick)
             testRule.onNodeWithTag(MottoInputFieldTag).performTextInput(enteredMotto)
@@ -114,7 +113,7 @@ class UserPreferencesActivityTests {
         testApplication.userInfoRepository = mockRepo
         val enteredNick = "nick"
         val enteredMotto = "motto"
-        ActivityScenario.launch(UserPreferencesActivity::class.java).use {
+        ActivityScenario.launch(ProfileActivity::class.java).use {
             // Still Arranging
             testRule.onNodeWithTag(NickInputFieldTag).performTextInput(enteredNick)
             testRule.onNodeWithTag(MottoInputFieldTag).performTextInput(enteredMotto)
@@ -131,7 +130,7 @@ class UserPreferencesActivityTests {
         // Arrange
         val enteredNick = "nick"
         val enteredMotto = "motto"
-        ActivityScenario.launch(UserPreferencesActivity::class.java).use { scenario ->
+        ActivityScenario.launch(ProfileActivity::class.java).use { scenario ->
             // Still Arranging
             testRule.onNodeWithTag(NickInputFieldTag).performTextInput(enteredNick)
             testRule.onNodeWithTag(MottoInputFieldTag).performTextInput(enteredMotto)
@@ -150,7 +149,7 @@ class UserPreferencesActivityTests {
             coEvery { updateUserInfo(any()) } coAnswers { delay(200) }
         }
         testApplication.userInfoRepository = mockRepo
-        ActivityScenario.launch(UserPreferencesActivity::class.java).use { scenario ->
+        ActivityScenario.launch(ProfileActivity::class.java).use { scenario ->
             // Still Arranging
             testRule.onNodeWithTag(NickInputFieldTag).performTextInput("nick")
             testRule.onNodeWithTag(MottoInputFieldTag).performTextInput("motto")

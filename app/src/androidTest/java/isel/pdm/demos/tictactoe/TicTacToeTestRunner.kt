@@ -9,7 +9,6 @@ import isel.pdm.gomoku.domain.game.lobby.Lobby
 import isel.pdm.gomoku.domain.game.play.Match
 import isel.pdm.gomoku.domain.user.UserInfo
 import isel.pdm.gomoku.DependenciesContainer
-import isel.pdm.gomoku.domain.user.UserInfoRepository
 import kotlinx.coroutines.flow.emptyFlow
 
 /**

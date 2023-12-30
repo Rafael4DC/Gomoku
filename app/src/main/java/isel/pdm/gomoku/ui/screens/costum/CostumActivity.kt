@@ -3,12 +3,11 @@ package isel.game.gomoku.ui.screens.costum
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import isel.pdm.gomoku.ui.home.TAG
 import isel.pdm.gomoku.ui.screens.costum.CostumScreen
+import isel.pdm.gomoku.ui.screens.costum.CostumViewModel
 
 class CostumActivity : ComponentActivity() {
 
@@ -23,7 +22,6 @@ class CostumActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.v(TAG, "onCreateR() called")
         setContent {
             CostumScreen(
                 gameRules = viewModel.gameRules,
@@ -38,6 +36,5 @@ class CostumActivity : ComponentActivity() {
     }
     override fun onStart() {
         super.onStart()
-        Log.v(TAG, "onStartR() called")
     }
 }

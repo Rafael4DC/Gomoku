@@ -5,7 +5,6 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import isel.pdm.gomoku.domain.user.UserInfo
-import isel.pdm.gomoku.domain.user.UserInfoRepository
 import kotlinx.coroutines.flow.first
 
 private const val USER_NICK_KEY = "Nick"

@@ -6,19 +6,19 @@ import androidx.test.core.app.ApplicationProvider
 import isel.pdm.gomoku.domain.user.UserInfo
 import isel.pdm.gomoku.ui.common.NavigateBackTag
 import isel.pdm.demos.tictactoe.utils.createActivityAndPreserveDependenciesComposeRule
-import isel.pdm.gomoku.ui.preferences.EditButtonTag
-import isel.pdm.gomoku.ui.preferences.EditModeTestTag
-import isel.pdm.gomoku.ui.preferences.UserPreferencesActivity
-import isel.pdm.gomoku.ui.preferences.UserPreferencesScreenTag
-import isel.pdm.gomoku.ui.preferences.ViewModeTestTag
+import isel.pdm.gomoku.ui.profile.EditButtonTag
+import isel.pdm.gomoku.ui.profile.EditModeTestTag
+import isel.pdm.gomoku.ui.profile.ProfileActivity
+import isel.pdm.gomoku.ui.profile.UserPreferencesScreenTag
+import isel.pdm.gomoku.ui.profile.ViewModeTestTag
 import org.junit.Rule
 import org.junit.Test
 
-class UserPreferencesActivityTestsWithIntent {
+class ProfileActivityTestsWithIntent {
 
     @get:Rule
-    val testRule = createActivityAndPreserveDependenciesComposeRule<UserPreferencesActivity>(
-        UserPreferencesActivity.createIntent(
+    val testRule = createActivityAndPreserveDependenciesComposeRule<ProfileActivity>(
+        ProfileActivity.createIntent(
             ctx = ApplicationProvider.getApplicationContext(),
             userInfo = UserInfo("test", "test")
         )

@@ -4,11 +4,10 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import isel.pdm.gomoku.domain.IOState
 import isel.pdm.gomoku.domain.user.UserInfo
-import isel.pdm.gomoku.domain.user.UserInfoRepository
 import isel.pdm.gomoku.ui.main.MainScreenViewModel
 import isel.pdm.demos.tictactoe.utils.MockMainDispatcherRule
 import isel.pdm.demos.tictactoe.utils.SuspendingGate
-import isel.pdm.gomoku.ui.preferences.UserPreferencesScreenViewModel
+import isel.pdm.gomoku.ui.profile.ProfileScreenViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.delay
@@ -59,7 +58,7 @@ class UserPreferencesScreenViewModelTests {
     @Test
     fun updateUserInfo_emits_to_the_io_state_flow_the_saved_state() = runTest {
         // Arrange
-        val sut = UserPreferencesScreenViewModel(userInfoRepo)
+        val sut = ProfileScreenViewModel(userInfoRepo)
         // Act
         val gate = SuspendingGate()
         var lastCollectedState: IOState<UserInfo?>? = null
@@ -88,7 +87,7 @@ class UserPreferencesScreenViewModelTests {
     @Test
     fun updateUserInfo_emits_to_the_io_state_flow_the_saving_state() = runTest {
         // Arrange
-        val sut = UserPreferencesScreenViewModel(userInfoRepo)
+        val sut = ProfileScreenViewModel(userInfoRepo)
         // Act
         val gate = SuspendingGate()
         var lastCollectedState: IOState<UserInfo?>? = null
@@ -119,7 +118,7 @@ class UserPreferencesScreenViewModelTests {
         val delayedUserInfoRepo = mockk<UserInfoRepository> {
             coEvery { updateUserInfo(any()) } coAnswers { delay(1000) }
         }
-        val sut = UserPreferencesScreenViewModel(delayedUserInfoRepo)
+        val sut = ProfileScreenViewModel(delayedUserInfoRepo)
         sut.updateUserInfo(testUserInfo)
 
         // Act
@@ -129,7 +128,7 @@ class UserPreferencesScreenViewModelTests {
     @Test
     fun updateUserInfo_succeeds_if_state_is_saved() = runTest {
         // Arrange
-        val sut = UserPreferencesScreenViewModel(userInfoRepo)
+        val sut = ProfileScreenViewModel(userInfoRepo)
         val gate = SuspendingGate()
         var lastCollectedState: IOState<UserInfo?>? = null
         val collectJob = launch {

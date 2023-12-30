@@ -1,4 +1,4 @@
-package isel.pdm.gomoku.ui.screens.profile
+package isel.pdm.gomoku.ui.profile
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

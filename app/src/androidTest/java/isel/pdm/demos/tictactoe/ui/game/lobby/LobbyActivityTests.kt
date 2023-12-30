@@ -19,7 +19,7 @@ import isel.pdm.gomoku.ui.common.ErrorAlertTestTag
 import isel.pdm.gomoku.ui.common.NavigateBackTag
 import isel.pdm.gomoku.ui.common.NavigateToPreferencesTag
 import isel.pdm.gomoku.ui.game.play.GamePlayScreenTag
-import isel.pdm.gomoku.ui.preferences.UserPreferencesScreenTag
+import isel.pdm.gomoku.ui.profile.UserPreferencesScreenTag
 import isel.pdm.demos.tictactoe.utils.PreserveDefaultDependenciesNoActivity
 import isel.pdm.demos.tictactoe.utils.SuspendingGate
 import isel.pdm.demos.tictactoe.utils.createPreserveDefaultDependenciesComposeRuleNoActivity

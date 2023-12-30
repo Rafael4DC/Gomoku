@@ -7,7 +7,7 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import isel.pdm.gomoku.ui.common.ErrorAlertTestTag
 import isel.pdm.gomoku.ui.game.lobby.LobbyScreenTag
-import isel.pdm.gomoku.ui.preferences.UserPreferencesScreenTag
+import isel.pdm.gomoku.ui.profile.UserPreferencesScreenTag
 import isel.pdm.demos.tictactoe.utils.PreserveDefaultDependenciesNoActivity
 import isel.pdm.demos.tictactoe.utils.createPreserveDefaultDependenciesComposeRuleNoActivity
 import isel.pdm.gomoku.ui.main.MainActivity

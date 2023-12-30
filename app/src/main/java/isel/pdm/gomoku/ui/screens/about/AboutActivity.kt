@@ -12,7 +12,6 @@ import androidx.activity.compose.setContent
 import isel.game.gomoku.ui.screens.about.AboutScreen
 import isel.pdm.gomoku.R
 import isel.game.gomoku.ui.screens.about.components.AuthorInfo.Companion.authorInfo
-import isel.pdm.gomoku.ui.home.TAG
 
 class AboutActivity : ComponentActivity() {
 
@@ -41,7 +40,6 @@ class AboutActivity : ComponentActivity() {
             startActivity(intent)
         }
         catch (e: ActivityNotFoundException) {
-            Log.e(TAG, "Failed to open URL", e)
             Toast
                 .makeText(
                     this,
@@ -57,13 +55,12 @@ class AboutActivity : ComponentActivity() {
             val intent = Intent(Intent.ACTION_SENDTO).apply {
                 data = Uri.parse("mailto:")
                 putExtra(Intent.EXTRA_EMAIL, email)
-                putExtra(Intent.EXTRA_SUBJECT, "About the Jokes App")
+                putExtra(Intent.EXTRA_SUBJECT, "About Gomoku App")
             }
 
             startActivity(intent)
         }
         catch (e: ActivityNotFoundException) {
-            Log.e(TAG, "Failed to send email", e)
             Toast
                 .makeText(
                     this,

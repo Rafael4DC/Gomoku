@@ -12,12 +12,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import isel.pdm.gomoku.DependenciesContainer
 import isel.pdm.gomoku.R
-import isel.pdm.gomoku.domain.user.UserInfo
+import isel.pdm.gomoku.domain.user.User
 import isel.pdm.gomoku.ui.common.ErrorAlert
 import isel.pdm.gomoku.ui.common.UserInfoExtra
 import isel.pdm.gomoku.ui.common.toUserInfo
 import isel.pdm.gomoku.ui.game.play.GamePlayActivity
-import isel.pdm.gomoku.ui.preferences.UserPreferencesActivity
+import isel.pdm.gomoku.ui.profile.ProfileActivity
 import kotlinx.coroutines.launch
 
 /**
@@ -36,7 +36,7 @@ class LobbyActivity : ComponentActivity() {
          * @param ctx the context to be used.
          * @param userInfo the user information to be passed onto the activity.
          */
-        fun navigateTo(ctx: Context, userInfo: UserInfo) {
+        fun navigateTo(ctx: Context, userInfo: User) {
             ctx.startActivity(createIntent(ctx, userInfo))
         }
 
@@ -45,7 +45,7 @@ class LobbyActivity : ComponentActivity() {
          * @param ctx the context to be used.
          * @param userInfo the user information to be passed onto the activity.
          */
-        fun createIntent(ctx: Context, userInfo: UserInfo): Intent {
+        fun createIntent(ctx: Context, userInfo: User): Intent {
             val intent = Intent(ctx, LobbyActivity::class.java)
             intent.putExtra(USER_INFO_EXTRA, UserInfoExtra(userInfo))
             return intent
@@ -86,7 +86,7 @@ class LobbyActivity : ComponentActivity() {
                 playersInLobby = playersInLobby,
                 onPlayerSelected = { vm.sendChallenge(it) },
                 onNavigateBackRequested = { finish() },
-                onNavigateToPreferencesRequested = { UserPreferencesActivity.navigateTo(this, userInfoExtra) }
+                onNavigateToPreferencesRequested = { ProfileActivity.navigateTo(this, userInfoExtra) }
             )
 
             currentState.let {
@@ -104,7 +104,7 @@ class LobbyActivity : ComponentActivity() {
     /**
      * Helper method to get the user info extra from the intent.
      */
-    private val userInfoExtra: UserInfo by lazy {
+    private val userInfoExtra: User by lazy {
         checkNotNull(getUserInfoExtra()).toUserInfo()
     }
 

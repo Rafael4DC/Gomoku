@@ -1,4 +1,4 @@
-package isel.game.gomoku.ui.screens.costum
+package isel.pdm.gomoku.ui.screens.costum
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

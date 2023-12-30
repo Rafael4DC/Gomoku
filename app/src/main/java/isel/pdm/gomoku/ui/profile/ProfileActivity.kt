@@ -1,4 +1,4 @@
-package isel.pdm.gomoku.ui.screens.profile
+package isel.pdm.gomoku.ui.profile
 
 import android.app.Activity
 import android.content.Intent
@@ -10,11 +10,12 @@ import androidx.activity.viewModels
 import isel.pdm.gomoku.ui.home.TAG
 import isel.game.gomoku.ui.screens.profile.ProfileScreen
 import isel.pdm.gomoku.domain.app.FakeRankingService
+import isel.pdm.gomoku.service.services.user.model.gettoken.UserPostTokenOutputModel
 
 class ProfileActivity : ComponentActivity() {
 
     companion object {
-    fun navigateTo(origin: Activity) {
+    fun navigateTo(origin: Activity, orNull: UserPostTokenOutputModel) {
         val intent = Intent(origin, ProfileActivity::class.java)
         origin.startActivity(intent)
     }

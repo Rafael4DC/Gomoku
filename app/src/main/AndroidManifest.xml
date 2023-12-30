@@ -24,11 +24,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="isel.pdm.gomoku.ui.preferences.UserPreferencesActivity" />
+        <activity android:name="isel.pdm.gomoku.ui.profile.ProfileActivity" />
         <activity android:name="isel.pdm.gomoku.ui.game.lobby.LobbyActivity" />
         <activity android:name="isel.pdm.gomoku.ui.game.play.GamePlayActivity" />
 
-        <activity android:name=".ui.screens.profile.ProfileActivity" />
+        <activity android:name=".ui.profile.ProfileActivity" />
         <activity android:name=".ui.screens.ranking.RankingActivity" />
         <activity android:name=".ui.screens.about.AboutActivity"/>
     </application>

@@ -7,14 +7,18 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import isel.pdm.gomoku.ui.home.TAG
 import isel.game.gomoku.ui.screens.ranking.RankingScreen
+import isel.pdm.gomoku.DependenciesContainer
 import isel.pdm.gomoku.domain.app.FakeRankingService
+import pt.isel.daw.gomokuroyale.http.controller.user.model.getuser.GetUserOutputModel
 
 class RankingActivity : ComponentActivity() {
-
+    private val vm by viewModels<RankingViewModel> {
+        HomeScreenViewModel.factory((application as DependenciesContainer).userService,
+            (application as DependenciesContainer).dataStore)
+    }
     companion object {
-    fun navigateTo(origin: Activity) {
+    fun navigateTo(origin: Activity, orNull: List<GetUserOutputModel>) {
         val intent = Intent(origin, RankingActivity::class.java)
         origin.startActivity(intent)
     }
@@ -25,7 +29,6 @@ class RankingActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.fetchRankers(service)
-        Log.v(TAG, "onCreateR() called")
         setContent {
             RankingScreen(
                 rankers = viewModel.rankers,
@@ -33,8 +36,8 @@ class RankingActivity : ComponentActivity() {
             )
         }
     }
+
     override fun onStart() {
         super.onStart()
-        Log.v(TAG, "onStartR() called")
     }
 }
